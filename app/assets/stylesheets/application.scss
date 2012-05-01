@@ -1,0 +1,154 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ *= require devise
+ *= require_self
+*/
+
+html, body { margin: 0; padding: 0; background-color: #e0e0e0; }
+body { font: 12px/1.5 Verdana, sans-serif; }
+img { border: 0; }
+ul, ol { list-style: none; }
+ul, ol, dl, dt, dd, form, table { margin: 0; padding: 0; }
+
+a { color: #08c; }
+a:link, a:visited { text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.hidden { display: none; }
+
+.field_with_errors {
+}
+
+.field_with_errors label.message {
+	display: inline-block; 	
+	padding-left: 5px;
+  color: red;
+}
+
+.header {
+	background: white;
+
+	img { vertical-align: middle }
+	
+	ul {
+		overflow: hidden;
+		margin: 0 auto;
+		width: 940px;
+		
+		li {
+			float: left;
+			height: 80px;
+			line-height: 80px;
+		
+			&.brand { 
+				width: 140px ; 
+				font-weight: bold;
+			}
+	
+			&.links {
+				a {
+					margin-right: 10px;
+					&.true { color: black }
+				}				
+			}
+			
+			&.right {
+				float: right;
+				
+				a {
+					margin-left: 10px;
+					&.true { color: black; }
+				}
+			}
+		}
+	}
+}
+
+.container {
+	margin: 20px auto 0;
+	padding: 20px;
+	width: 900px;
+	min-height: 100px;
+	border-bottom: 1px solid #d2d2d2;		
+	background-color: white;	
+	box-shadow: 2px 2px 2px rgba(0,0,0,.15);
+
+	table {
+	  width: 100%;
+		border-collapse: collapse;
+	
+		tr {
+			border-top: 1px solid #ddd;
+
+			&:first-child {
+			  border-top: none;
+			}		
+		}
+	
+		td {
+			padding: 20px;
+			vertical-align: top;
+		
+			&.image {
+				width: 60px;
+			
+				img { width: 60px }
+			}
+	
+			p {
+				margin: 0 0 10px;
+				padding: 0;
+			
+				&.title { 
+					font-weight: bold;
+					
+					span { 
+						margin-left: 10px; 
+						font-weight: normal; 
+					}
+				}
+				
+				&.price { 
+					font-weight: bold;
+					
+					span { 
+						margin-left: 5px;
+					}					
+				}
+			}
+		
+			select, input {
+				margin: 0;
+				padding: 0;
+				margin-right: 10px;
+			}
+		}
+	}
+}
+
+.footer {
+	margin: 20px auto;
+	padding: 10px 0;
+	width: 940px;
+	border-top: 1px solid white;
+	box-shadow: 0px -1px 0px 0px #bebebe;
+	-webkit-box-shadow: 0px -1px 0px 0px #bebebe;
+	-moz-box-shadow: 0px -1px 0px 0px #bebebe;
+	
+	p {
+		margin: 0;
+		padding: 0;
+		color: #8e8e8e;				
+		height: 20px;
+		line-height: 20px;
+		font-size: 10px;				
+		text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.75);	
+		
+		a {
+			margin-right: 10px;
+			color: #8e8e8e;
+			text-decoration: none;
+		}
+	}	
+}

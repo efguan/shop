@@ -1,0 +1,18 @@
+= form_for @order, :url => update_cart_path do |order|
+  table
+    tbody
+      = order.fields_for :line_items do |item_form|
+        = render :partial => 'line_item', :locals => { :line_item => item_form.object, :item_form => item_form }
+
+javascript:  
+  $('form.edit_order input').live('change', function() {
+    $(this).parents('form').first().submit();
+    return false;
+  });
+  
+  $('form.edit_order a.delete').live('click', function() {
+    $(this).parents('.line-item').first().find('input.line_item_quantity').val(0);
+    $(this).parents('form').first().submit();
+    return false;
+  });
+  

@@ -1,0 +1,30 @@
+table
+  tbody
+    - @products.each do |product|
+      tr id="_#{product.id}"
+        td.image = image_tag product.image.thumb if product.image
+        td 
+          p.title = product.title
+          - variant = product.variants.active.first
+          - options = product.variant_options
+          p.price 
+            | $
+            span = variant.price        
+          p.description = product.description
+          = form_tag populate_orders_url, :id => "product_id_#{product.id}" do
+            = select_tag :variant_id, options_for_select(options, variant.id) if options.first.first.present?
+            - if variant.available_for_order?
+              = hidden_field_tag "variants[#{variant.id}]", 1, :class => 'variant'
+              = link_to t('.add_to_shopping_list'), nil
+            - else
+              = link_to t('.add_to_shopping_list'), nil, :class => :hidden
+          
+javascript:
+  $('form select').live('change', function() {
+    $.ajax({ url: '?format=js&variant_id=' + $(this).val() });
+  })
+  
+  $('form a').live('click', function() {
+    $(this).parents('form').submit();
+    return false;
+  })  

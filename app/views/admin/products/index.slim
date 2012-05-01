@@ -1,0 +1,28 @@
+- content_for :breadcrumb do
+  li.active = t('.products')
+.row
+  .span9
+    .box.no-padding
+      table.line-item
+        tbody
+          - @products.each do |product|          
+            tr
+              td.span1 = image_tag product.image.thumb if product.image
+              td 
+                = link_to product.title, admin_product_path(product)
+                br
+                - if product.tags.to_a.any?
+                  span.tags
+                    - product.tags.each do |tag|
+                      =' link_to tag, tagged_admin_products_path(:tag => tag)
+      = paginate @products
+  .span3
+    .box
+      = link_to t('new'), new_admin_product_path, :class => 'btn'
+    .box
+      header = t('.tags')
+      - if @tags.any?
+        span.tags
+          - @tags.each do |tag|
+            =' link_to tag, tagged_admin_products_path(:tag => tag)
+            

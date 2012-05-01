@@ -1,0 +1,17 @@
+- content_for :breadcrumb do
+  li
+    = link_to t('.products'), admin_products_path
+    span.divider = '/'
+  li = link_to @product.title, admin_product_path(@product)
+.row
+  .span9
+    .box
+      = form_for [:admin, @product], :html => { :class => 'form-horizontal' } do |f|
+        fieldset
+          legend = t('.edit')
+          = render :partial => 'form', :locals => { :product => @product, :f => f }
+          .form-actions = f.submit :class => 'btn btn-primary'
+  .span3
+    .box
+      = link_to t('delete'), admin_product_path(@product), :method => 'delete', :confirm => '?', :class => 'btn btn-danger'
+    

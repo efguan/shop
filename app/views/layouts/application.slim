@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    title = page_title
+    = stylesheet_link_tag    'application'
+    = javascript_include_tag 'application'
+    - if content_for? :head
+      = yield :head
+    = csrf_meta_tags
+  body
+    .header 
+      ul
+        li.brand The Shop Startup
+        li.links 
+          = link_to t('.home'), root_path, :class => controller_name == 'home'
+          = link_to t('.shopping_list'), cart_path, :class => controller_name == 'orders'
+        li.right
+          - if current_user
+            = link_to t('.admin_dashboard'), admin_dashboard_path if user_signed_in? && current_user.admin?
+            = link_to t('.sign_out'), destroy_user_session_path, :method => 'delete'
+          - else
+            = link_to t('.sign_up'), new_user_registration_path, :class => controller_name == 'registrations'
+            = link_to t('.sign_in'), new_user_session_path, :class => controller_name == 'sessions'
+            
+    .container = yield
+    
+    .footer
+      p
+        = link_to 'Github', 'https://github.com/efguan/shop'
+        = link_to 'Follow', 'https://twitter.com/efguan'
+      p  Used under the terms of the MIT License.
+          

@@ -1,0 +1,76 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  new: 'New'
+  edit: 'Edit'
+  delete: 'Delete'
+  
+  helpers:
+    submit:
+      create: 'Save'
+      update: 'Update'
+
+  layouts:
+    application:
+      home: 'Home'
+      shopping_list: 'Shoppling List'
+      admin_dashboard: 'Admin dashboard'
+      sign_out: 'Sign out'
+      sign_up: 'Sign up'
+      sign_in: 'Sign in'
+    admin:
+      back_home: 'Back home'
+      dashboard: 'Dashboard'      
+      products: 'Products'
+  
+  home:
+    index:
+      add_to_shopping_list: 'Add to Shopping List'
+  devise:
+    registrations:
+      new:
+        sign_up: 'Sign up'
+    sessions:
+      new:
+        sign_in: 'Sign in'
+  orders:
+    line_item:
+      remove_from_list: 'Remove from list'
+  admin:
+    dashboard:
+      index:
+        email: 'Email'
+        created_at: 'Created at'
+    products:
+      index:
+        products: 'Products'
+        tags: 'Tags'
+      show:
+        products: 'Products'
+        price: 'Price'
+        sku: 'Sku'
+        available_for_order: 'Available for Order'
+        out_of_stock: 'Out of Stock'
+        new_variant: 'New Variant'
+      new:
+        products: 'Products'
+        new: 'New'
+      edit:
+        products: 'Products'
+        edit: 'Edit'
+      form:
+        available: 'Available'
+    variants:
+      new:
+        products: 'Products'
+      edit:
+        products: 'Products'        
+      form:
+        variant: 'Variant'
+        available_for_order: 'Available for Order'        
+        out_of_stock: 'Out of Stock'
+      prop:
+        products: 'Products'
+        property: 'Property'
+        option: 'Option'

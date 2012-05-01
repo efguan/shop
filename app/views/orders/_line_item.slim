@@ -1,0 +1,15 @@
+- variant = line_item.variant
+- product = line_item.variant.product
+
+tr.line-item
+  td.image = image_tag product.image.thumb if product.image
+  td 
+    p.title 
+      = product.title
+      span = variant.props.values.join (' - ')
+    p.price 
+      | $
+      span = variant.price
+    p.description = product.description
+    = item_form.text_field :quantity, :class => 'line_item_quantity', :size => 1
+    = link_to t('.remove_from_list'), nil, :class => 'delete'

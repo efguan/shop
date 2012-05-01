@@ -1,0 +1,109 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require bootstrap
+ *= require bootstrap-responsive
+ *= require_self
+ *= require_tree .
+*/
+
+html, body {
+  background-color: #eee;
+}
+
+.hidden {
+	display: none;
+}
+
+.field_with_errors {
+}
+
+.field_with_errors label.message {
+	display: inline-block; 	
+	padding-left: 5px;
+  color: red;
+}
+
+.navbar-inner {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
+.box {
+	overflow: hidden;
+  margin-bottom: 10px;	
+  padding: 14px;
+  background-color: white;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -moz-box-shadow: 0 0 0 1px #DDD;
+  -webkit-box-shadow: 0 0 0 1px #DDD;
+  box-shadow: 0 0 0 1px #DDD;
+
+  &.no-padding {
+    padding: 0;
+
+    header {
+      margin-bottom: 0;
+      padding: 10px;
+    }
+
+    footer {
+      margin-top: 0;
+      padding: 10px;
+    }
+  }
+
+  header {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+  }
+
+  footer {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+  }
+}
+
+.tags a {
+  line-height: 22px;
+  color: white;
+  font-weight: bold;
+  font-size: 11px;
+  padding: 1px 4px;
+  background-color: #bfbfbf;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+
+  &:hover {
+    text-decoration: none;
+    background-color: #aaa;
+  }
+}
+
+table.line-item {
+  width: 100%;
+
+  tr {
+    border-top: 1px solid #ddd;
+
+    &:first-child {
+      border-top: none;
+    }
+  }
+
+	td {
+		padding: 10px;
+		vertical-align: top;
+
+	  header {
+			padding-left: 0;
+	    border-bottom: 0;
+	  }
+  }
+}

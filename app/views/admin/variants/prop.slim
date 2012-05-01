@@ -1,0 +1,31 @@
+- content_for :breadcrumb do
+  li
+    = link_to t('.products'), admin_products_path
+    span.divider = '/'
+  li = link_to @product.title, admin_product_path(@product)
+.row
+  .span9
+    .box
+      = form_for [:admin, @product, Variant.new], :html => { :class => 'form-horizontal' } do |f|
+        fieldset
+          legend = t('.property')          
+          .control-group
+            label.control-label = t('.option')
+            .controls
+              .variant_line_items
+                .variant_line_item
+                  = text_field_tag 'variant_options[]'
+                  span.help-inline 
+                    i.icon-plus
+                  label
+          .form-actions = f.submit :class => 'btn btn-primary'
+      
+javascript:
+  $('.icon-plus').live('click', function() {
+    $('.variant_line_items').append($('<div />').append($('.variant_line_item:last').clone()).html());
+    $(this).removeClass('icon-plus').addClass('icon-remove');
+  })
+  
+  $('.icon-remove').live('click', function() {
+    $(this).parent().parent().remove();
+  })

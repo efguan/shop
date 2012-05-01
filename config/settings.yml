@@ -1,0 +1,12 @@
+defaults: &defaults
+  admin_emails:
+    - efguan@gmail.com
+
+production:
+  <<: *defaults
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults

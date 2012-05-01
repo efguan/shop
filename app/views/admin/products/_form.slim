@@ -1,0 +1,38 @@
+.control-group
+  = f.label :title, :class => 'control-label'
+  .controls = f.text_field :title
+.control-group
+  .control-label = t('.available')
+  .controls 
+    label.checkbox = f.check_box :available, :disabled => product.variants.active.first.nil?
+.control-group
+  = f.label :brand, :class => 'control-label'
+  - if Product.brands.any?
+    .controls.hidden = f.text_field :brand
+    .controls
+      = f.select :brand, Product.brands
+      span.help-inline
+        i.icon-edit.brand
+  - else
+    .controls = f.text_field :brand
+.control-group
+  = f.label :category, :class => 'control-label'
+  - if Product.departments.any?
+    .controls.hidden = f.text_field :department
+    .controls
+      = f.select :department, Product.departments
+      span.help-inline 
+        i.icon-edit
+  - else
+    .controls = f.text_field :department
+.control-group
+  = f.label :Tags, :class => 'control-label'
+  .controls = f.text_field :tag_string    
+.control-group
+  = f.label :description, :class => 'control-label'
+  .controls = f.text_area :description, :rows => 4
+
+javascript:
+  $('.icon-edit').click(function() {
+    $(this).parents('.control-group').find('.controls.hidden').removeClass('hidden').next().remove();
+  });

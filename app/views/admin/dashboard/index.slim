@@ -1,0 +1,14 @@
+.row
+  .span12
+    .box
+      table.table.table-striped
+        thead
+          tr
+            th = t('.email')
+            th = t('.created_at')
+        tbody
+          - @users.each do |user|
+            tr
+              td = user.email
+              td = user.created_at.to_date
+      = paginate @users

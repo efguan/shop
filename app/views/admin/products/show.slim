@@ -1,0 +1,52 @@
+- content_for :breadcrumb do
+  li
+    = link_to t('.products'), admin_products_path
+    span.divider = '/'
+  li.active = @product.title
+  li 
+    = link_to edit_admin_product_path(@product) do
+      i.icon-edit
+.row
+  .span9
+    .box
+      table.table
+        thead
+          tr
+            th = t('.price')
+            th = t('.sku')
+            th
+            th
+        tbody
+          - @product.variants.active.each do |variant|          
+            tr
+              td 
+                = link_to edit_admin_product_variant_path(@product, variant) do
+                  i.icon-edit
+                = variant.price                  
+              td = variant.sku
+              td
+                - variant.props.each do |option, value|
+                  span.label =' option
+                  span.label.label-info =' value
+              td
+                span.label = t(".#{variant.state}")
+    .box
+      ul.thumbnails
+        - @product.images.each do |image|
+          li.span2
+            .thumbnail
+              = image_tag image.attachment.small
+              .caption
+                = link_to admin_product_image_path(@product, image), :method => 'delete', :confirm => '?' do
+                  i class='icon-trash'
+      footer 
+        = form_for [:admin, @product, @image], :html => { :multipart => true } do |f|
+          = f.file_field :attachment
+  .span3
+    .box 
+      = link_to t('.new_variant'), new_admin_product_variant_path(@product), :class => 'btn'
+
+javascript:
+  $('input#image_attachment').live('change', function() {
+    $('form#new_image').submit();
+  });

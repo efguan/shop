@@ -1,0 +1,8 @@
+- content_for :breadcrumb do
+  li
+    = link_to t('.products'), admin_products_path
+    span.divider = '/'
+  li = link_to @product.title, admin_product_path(@product)
+.row
+  .span9
+    = render :partial => 'form'
